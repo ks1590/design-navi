@@ -115,7 +115,7 @@ export default function App() {
 			menu: ['draw', 'shape', 'text'],
 			initMenu: 'text',
 			uiSize: {
-				width: '95vw',
+				width: 'auto',
 				height: '89vh',
 			},
 			menuBarPosition: 'bottom',
