@@ -1,6 +1,9 @@
 import React from 'react';
 import TuiImageEditor from 'tui-image-editor';
 
+import { useDisclosure } from '@mantine/hooks';
+import { Modal, Button } from '@mantine/core';
+
 // import './index.css';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
@@ -109,30 +112,39 @@ class ImageEditor extends React.Component {
 export default function App() {
 	const props = {
 		includeUI: {
-			// menu: ['shape', 'filter', 'text'],
 			menu: ['draw', 'shape', 'text'],
 			initMenu: 'text',
 			uiSize: {
-				width: '1000px',
-				height: '700px',
+				width: '95vw',
+				height: '89vh',
 			},
 			menuBarPosition: 'bottom',
 			theme: theme,
 			locale: locale_ja,
 		},
-		cssMaxWidth: 700,
-		cssMaxHeight: 500,
+		cssMaxWidth: 800,
+		cssMaxHeight: 600,
 		selectionStyle: {
 			cornerSize: 20,
 			rotatingPointOffset: 70,
 		},
 	};
 
+	const [opened, { open, close }] = useDisclosure(false);
+
 	return (
 		<div>
-			<button onClick={console.log('clicked')}>Get Image URL</button>
-
-			<ImageEditor {...props} />
+			<Modal
+				opened={opened}
+				onClose={close}
+				title='This is a fullscreen modal'
+				fullScreen
+				radius={0}
+				transitionProps={{ transition: 'fade', duration: 200 }}>
+				<button onClick={console.log('clicked')}>Get Image URL</button>
+				<ImageEditor {...props} />
+			</Modal>
+			<Button onClick={open}>Open Modal</Button>
 		</div>
 	);
 }
