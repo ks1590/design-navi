@@ -112,7 +112,7 @@ class ImageEditor extends React.Component {
 export default function App() {
 	const props = {
 		includeUI: {
-			menu: ['draw', 'shape', 'text'],
+			menu: ['crop', 'draw', 'shape', 'text'],
 			initMenu: 'text',
 			uiSize: {
 				width: 'auto',
