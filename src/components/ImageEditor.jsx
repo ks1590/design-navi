@@ -7,6 +7,7 @@ import { Modal, Button } from '@mantine/core';
 // import './index.css';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
+// import '../styles/service-mobile.css';
 
 import icon_a from 'tui-image-editor/dist/svg/icon-a.svg';
 import icon_b from 'tui-image-editor/dist/svg/icon-b.svg';
@@ -122,11 +123,18 @@ export default function App() {
 			theme: theme,
 			locale: locale_ja,
 		},
-		cssMaxWidth: 800,
-		cssMaxHeight: 600,
+		// cssMaxWidth: document.documentElement.clientWidth,
+		// cssMaxHeight: document.documentElement.clientHeight,
+		// cssMaxWidth: '100px',
+		// cssMaxHeight: '100px',
 		selectionStyle: {
-			cornerSize: 20,
-			rotatingPointOffset: 70,
+			// cornerSize: 50,
+			// rotatingPointOffset: 100,
+			borderColor: 'blue', // Selection line color
+			cornerColor: 'green', // Selection corner color
+			cornerSize: 6, // Selection corner size
+			rotatingPointOffset: 100, // Distance from selection area to rotation corner
+			transparentCorners: false, //
 		},
 	};
 
