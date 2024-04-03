@@ -1,0 +1,19 @@
+name: My Workflow
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get user name
+      run: echo ${{ secrets.USER_NAME }}
+
+    - name: Run your job
+      run: echo "Hello, ${{ secrets.USER_NAME }}!"
